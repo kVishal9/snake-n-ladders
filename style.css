@@ -76,7 +76,7 @@
     height: 45px;
     border: 1px solid;
     border-radius: 50%;
-    transition: 2s;
+    transition: 0.5s;
 }
 
 @media(max-width:434) {
