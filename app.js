@@ -4,6 +4,7 @@ let dicevalue = document.getElementById('dice');
 const generate = document.querySelector('button');
 const reset = document.querySelector('#reset');
 let DV = document.querySelector('#dicevalue');
+let bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);
 const snakes = {
   17:7,
   64:60,
@@ -165,10 +166,8 @@ function snakeCheckg(rowpos , colpos){
   //loca.innerHTML = `${k} , ${posc}`;
   
   //pos 17 to pos 7
-  if(colpos==3+(52*(2-1)) && k == 3+(48.4*(4-1))){
-    
-    
-    posr = 3+(48.4*(7-1));
+  if(colpos==3+(52*(2-1)) && k == 3+(bw*(4-1))){
+    posr = 3+(bw*(7-1));
     posc = 3+(52*(1-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -177,8 +176,8 @@ function snakeCheckg(rowpos , colpos){
   }
   
   //pos 64 to pos 60
-  if(colpos==3+(52*(7-1)) && k == 3+(48.4*(4-1))){
-    posr = 3+(48.4*(1-1));
+  if(colpos==3+(52*(7-1)) && k == 3+(bw*(4-1))){
+    posr = 3+(bw*(1-1));
     posc = 3+(52*(6-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -187,8 +186,8 @@ function snakeCheckg(rowpos , colpos){
   }
   
   //pos 89 to pos 26
-  if(colpos==3+(52*(9-1)) && k == 3+(48.4*(9-1))){
-    posr = 3+(48.4*(6-1));
+  if(colpos==3+(52*(9-1)) && k == 3+(bw*(9-1))){
+    posr = 3+(bw*(6-1));
     posc = 3+(52*(3-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -197,8 +196,8 @@ function snakeCheckg(rowpos , colpos){
   }
   
   //pos 95 to pos 74
-  if(colpos==3+(52*(10-1)) && k == 3+(48.4*(6-1))){
-    posr = 3+(48.4*(7-1));
+  if(colpos==3+(52*(10-1)) && k == 3+(bw*(6-1))){
+    posr = 3+(bw*(7-1));
     posc = 3+(52*(8-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -207,8 +206,8 @@ function snakeCheckg(rowpos , colpos){
   }
   
   //pos 99 to pos 78
-  if(colpos==3+(52*(10-1)) && k == 3+(48.4*(2-1))){
-    posr = 3+(48.4*(3-1));
+  if(colpos==3+(52*(10-1)) && k == 3+(bw*(2-1))){
+    posr = 3+(bw*(3-1));
     posc = 3+(52*(8-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -220,8 +219,8 @@ function snakeCheckg(rowpos , colpos){
 function ladderCheckg(rowpos , colpos){
   let k = rowpos.toFixed(1);
   //pos 4 to pos 14
-  if(colpos==3+(52*(1-1)) && k == 3+(48.4*(4-1))){
-    posr = 3+(48.4*(7-1));
+  if(colpos==3+(52*(1-1)) && k == 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(4-1))){
+    posr = 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(7-1));
     posc = 3+(52*(2-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px'; 
@@ -229,8 +228,8 @@ function ladderCheckg(rowpos , colpos){
     row = 2;   
   }  
   //pos 9 to pos 31
-  if(colpos==3+(52*(1-1)) && k == 3+(48.4*(9-1))){
-    posr = 3+(48.4*(10-1));
+  if(colpos==3+(52*(1-1)) && k == 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(9-1))){
+    posr = 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(10-1));
     posc = 3+(52*(4-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -238,8 +237,8 @@ function ladderCheckg(rowpos , colpos){
     row = 4;    
   }  
   //pos 20 to pos 38
-  if(colpos==3+(52*(2-1)) && k == 3+(48.4*(1-1))){
-    posr = 3+(48.4*(3-1));
+  if(colpos==3+(52*(2-1)) && k == 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(1-1))){
+    posr = 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(3-1));
     posc = 3+(52*(4-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -247,8 +246,8 @@ function ladderCheckg(rowpos , colpos){
     row = 4;    
   } 
   //pos 28 to pos 84
-  if(colpos==3+(52*(3-1)) && k == 3+(48.4*(8-1))){
-    posr = 3+(48.4*(4-1));
+  if(colpos==3+(52*(3-1)) && k == 3+(bw*(8-1))){
+    posr = 3+(bw*(4-1));
     posc = 3+(52*(9-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -256,8 +255,8 @@ function ladderCheckg(rowpos , colpos){
     row = 9;    
   }  
   //pos 51 to pos 67
-  if(colpos==3+(52*(6-1)) && k == 3+(48.4*(10-1))){
-    posr = 3+(48.4*(7-1));
+  if(colpos==3+(52*(6-1)) && k == 3+(bw*(10-1))){
+    posr = 3+(bw*(7-1));
     posc = 3+(52*(7-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
