@@ -1,12 +1,13 @@
 .grid {
     display: flex;
     justify-content: center;
-}
+} 
 .interact{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .button{
     display: flex;   
@@ -15,76 +16,72 @@
 
 }
 button{
-    min-width: 50px;
+    min-width: 100px;
+    height: 100px;
     margin-top: 10px;
-    border: none;
-    background-color: rgb(211, 255, 255);
+    border-radius: 50%;
+    color: aliceblue;
+    font-size: larger;
+    font-weight: 700;    border: none;
+    background-color: rgb(94, 94, 94);
 }
 button:hover{
+  
     background-color: aquamarine;
+    color: black ;
 }
-
 .container {
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0);
     width: 488px;
     height: 522px;
     display: flex;
     position: relative;
-    background-color: gray;
-
+    background-color: rgb(255, 255, 255);
+    
+    
 }
-
 .row {
-    width: 484px;
+    width: calc(100% - 4px) ;
     margin: 0px;
     height: 50px;
-    border: 2px dotted rgba(83, 53, 53, 0);
+    border: 2px dotted rgb(255, 255, 255);
     display: flex;
+    flex: 1;
     position: absolute;
     top: 0px;
     left: 0px;
 }
-
 .row:nth-child(2) {
     top: calc(52px*1);
 }
-
 .row:nth-child(3) {
     top: calc(52px*2);
 }
-
 .row:nth-child(4) {
     top: calc(52px*3);
 }
-
 .row:nth-child(5) {
     top: calc(52px*4);
 }
-
 .row:nth-child(6) {
     top: calc(52px*5);
 }
-
 .row:nth-child(7) {
     top: calc(52px*6);
 }
-
 .row:nth-child(8) {
     top: calc(52px*7);
 }
-
 .row:nth-child(9) {
     top: calc(52px*8);
 }
-
 .row:nth-child(10) {
     top: calc(52px*9);
 }
-
 .box {
-    width: 47px;
-    height: 47px;
-    border: 1px solid rgb(0, 0, 0);
+    width: calc(100%  - 1.4px);
+    height: calc(100% - 3px);
+    border: 1px solid rgb(255, 255, 255);
     margin: auto;
     display: table-cell;
     text-align: center;
@@ -94,6 +91,9 @@ button:hover{
     font-style: oblique;
     font-weight: 600;
     padding-top: 0px;
+    position: relative;
+    
+    
 }
 .row:nth-child(odd) .box:nth-child(odd) , .row:nth-child(even) .box:nth-child(even) {
     background-color: rgb(132, 0, 255);
@@ -108,31 +108,10 @@ button:hover{
     background-color: rgb(255, 75, 75);
     top: 3px;
     left: 3px;
-    width: 45px;
+    width: calc((100% / 10) - 3.8px);
     height: 45px;
     border: 1px solid rgb(255, 75, 75);
     border-radius: 50%;
     transition: 0.3s;
 }
 
-@media(max-width:434) {
-    .container {
-        border: 1px solid black;
-        width: 414px;
-        height: 522px;
-        display: flex;
-        position: relative;
-
-    }
-
-    .row {
-        max-width: 410px;
-        margin: 0px;
-        height: 50px;
-        border: 2px dotted red;
-        display: flex;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-}
