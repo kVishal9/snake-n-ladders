@@ -4,7 +4,7 @@ let dicevalue = document.getElementById('dice');
 const generate = document.querySelector('button');
 const reset = document.querySelector('#reset');
 let DV = document.querySelector('#dicevalue');
-let bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);
+let bw;
 const snakes = {
   17:7,
   64:60,
@@ -30,8 +30,13 @@ let dice;
 let c = 0;
 
 document.getElementById('normal').addEventListener('click', ()=>{
-  makeMove();  
-    document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px`;
+    makeMove(); 
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4); 
+    
+    let v
+    posr.toFixed(1)==(3+bw).toFixed(1)? v = "true": v = "false";
+    
+    document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px || ${(3+(bw*(6-1))).toFixed(1)}` + v;
   });
 
 //RESET BUTTON
@@ -61,6 +66,7 @@ function gameReset(){
 generate.addEventListener('click',()=>{
   new Audio('Shake And Roll Dice-SoundBible.com-591494296.mp3').play();
   dice=Math.floor(Math.random()*6)+1;  
+  bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);//value =48.4
   document.getElementById('dicevalue').innerText=`Dice Value: ${dice}`;  
   positionaDeterminer(dice);    
   if(pos>=100){
@@ -163,10 +169,11 @@ function makeMove(){
 //CHECK FOR SNAKES
 function snakeCheckg(rowpos , colpos){
   let k = rowpos.toFixed(1);
+  bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);
   //loca.innerHTML = `${k} , ${posc}`;
   
   //pos 17 to pos 7
-  if(colpos==3+(52*(2-1)) && k == 3+(bw*(4-1))){
+  if(colpos==3+(52*(2-1)) && k == ((3+(bw*(4-1))).toFixed(1))){
     posr = 3+(bw*(7-1));
     posc = 3+(52*(1-1));
     pointer.style.left = posr + 'px';
@@ -218,9 +225,10 @@ function snakeCheckg(rowpos , colpos){
 //CHECK FOR LADDERS
 function ladderCheckg(rowpos , colpos){
   let k = rowpos.toFixed(1);
+  bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);
   //pos 4 to pos 14
-  if(colpos==3+(52*(1-1)) && k == 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(4-1))){
-    posr = 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(7-1));
+  if(colpos==3+(52*(1-1)) && k == (3+(bw*(4-1)).toFixed(1))){
+    posr = (3+(bw*(7-1))).toFixed(1);
     posc = 3+(52*(2-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px'; 
@@ -255,7 +263,7 @@ function ladderCheckg(rowpos , colpos){
     row = 9;    
   }  
   //pos 51 to pos 67
-  if(colpos==3+(52*(6-1)) && k == 3+(bw*(10-1))){
+  if(colpos==3+(52*(6-1)) && k == (3+(bw*(10-1))).toFixed(1)){
     posr = 3+(bw*(7-1));
     posc = 3+(52*(7-1));
     pointer.style.left = posr + 'px';
