@@ -122,16 +122,16 @@ function aumove(dice){
 function makeMove(){
  
   if(row%2!=0){
-    posr += 48.4;    
+    posr += (document.getElementById('row').offsetWidth / 10)- 0.4;    
     pointer.style.left = posr + 'px';
-    if(posr>438.6){
+    if(posr>(3 + (((document.getElementById('row').offsetWidth / 10) - 0.4) * (10 - 1)))){
       row++;
       posc+=52.0;
       pointer.style.top = posc + 'px';
     }    
   }
   if(row%2==0){
-    posr-=48.4; 
+    posr-=(document.getElementById('row').offsetWidth / 10)- 0.4; 
     pointer.style.left = posr + 'px';    
     if(posr.toFixed(1)<3){
       row++; 
