@@ -33,10 +33,14 @@ document.getElementById('normal').addEventListener('click', ()=>{
     makeMove(); 
     bw = ((document.getElementById('row').offsetWidth / 10) - 0.4); 
     
-    let v
-    posr.toFixed(1)==(3+bw).toFixed(1)? v = "true": v = "false";
+    let v = 4.3342234;
+    //v = v.toFixed(1);
+
+    //posr.toFixed(1)==(3+bw).toFixed(1)? v = "true": v = "false";
+    //v = parseFloat((3+(bw*(6-1)))) + parseFloat((1).toFixed(1));
+    //v = parseFloat(2.0) - parseFloat(1.0);
     
-    document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px || ${(3+(bw*(6-1))).toFixed(1)}` + v;
+    document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px ||  ${v.toFixed(1)}` ;
   });
 
 //RESET BUTTON
@@ -129,18 +133,20 @@ function aumove(dice){
 function makeMove(){
  
   if(row%2!=0){
-    posr += (document.getElementById('row').offsetWidth / 10)- 0.4;    
+    posr = parseFloat(posr.toFixed(1)) + parseFloat((((document.getElementById('row').offsetWidth / 10)- 0.4)).toFixed(1));    
+    
     pointer.style.left = posr + 'px';
-    if(posr>(3 + (((document.getElementById('row').offsetWidth / 10) - 0.4) * (10 - 1)))){
+    
+    if(posr>((3 + (((document.getElementById('row').offsetWidth / 10) - 0.4) * (10 - 1))))){
       row++;
       posc+=52.0;
       pointer.style.top = posc + 'px';
     }    
   }
   if(row%2==0){
-    posr-=(document.getElementById('row').offsetWidth / 10)- 0.4; 
+    posr = parseFloat(posr.toFixed(1)) - parseFloat((((document.getElementById('row').offsetWidth / 10)- 0.4)).toFixed(1)); 
     pointer.style.left = posr + 'px';    
-    if(posr.toFixed(1)<3){
+    if(posr<3){
       row++; 
       posc+=52.0;
       posr=3.0;      
@@ -149,7 +155,7 @@ function makeMove(){
     }        
   }
   if(posc==471){
-    if(posr.toFixed(1)<=3){
+    if(posr<=3){
       pointer.style.left = 3 + 'px';
       pointer.style.top = 471 + 'px';
       document.querySelector('.result').innerText='game over, you won';
@@ -157,7 +163,7 @@ function makeMove(){
     }    
   }   
   if(posc>=523){
-    if(posr.toFixed(1)>=3){
+    if(posr>=3){
       pointer.style.left = 3 + 'px';
       pointer.style.top = 471 + 'px';
       document.querySelector('.result').innerText='game over, you won';
@@ -173,8 +179,8 @@ function snakeCheckg(rowpos , colpos){
   //loca.innerHTML = `${k} , ${posc}`;
   
   //pos 17 to pos 7
-  if(colpos==3+(52*(2-1)) && k == ((3+(bw*(4-1))).toFixed(1))){
-    posr = 3+(bw*(7-1));
+  if(colpos==3+(52*(2-1)) && k == (3+(bw*(4-1))).toFixed(1)){
+    posr = (3+(bw*(7-1)));
     posc = 3+(52*(1-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -183,8 +189,8 @@ function snakeCheckg(rowpos , colpos){
   }
   
   //pos 64 to pos 60
-  if(colpos==3+(52*(7-1)) && k == 3+(bw*(4-1))){
-    posr = 3+(bw*(1-1));
+  if(colpos==3+(52*(7-1)) && k == (3+(bw*(4-1))).toFixed(1)){
+    posr = (3+(bw*(1-1)));
     posc = 3+(52*(6-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -193,8 +199,8 @@ function snakeCheckg(rowpos , colpos){
   }
   
   //pos 89 to pos 26
-  if(colpos==3+(52*(9-1)) && k == 3+(bw*(9-1))){
-    posr = 3+(bw*(6-1));
+  if(colpos==3+(52*(9-1)) && k == (3+(bw*(9-1))).toFixed(1)){
+    posr = (3+(bw*(6-1)));
     posc = 3+(52*(3-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -203,8 +209,8 @@ function snakeCheckg(rowpos , colpos){
   }
   
   //pos 95 to pos 74
-  if(colpos==3+(52*(10-1)) && k == 3+(bw*(6-1))){
-    posr = 3+(bw*(7-1));
+  if(colpos==3+(52*(10-1)) && k == (3+(bw*(6-1))).toFixed(1)){
+    posr = (3+(bw*(7-1)));
     posc = 3+(52*(8-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -213,8 +219,8 @@ function snakeCheckg(rowpos , colpos){
   }
   
   //pos 99 to pos 78
-  if(colpos==3+(52*(10-1)) && k == 3+(bw*(2-1))){
-    posr = 3+(bw*(3-1));
+  if(colpos==3+(52*(10-1)) && k == (3+(bw*(2-1))).toFixed(1)){
+    posr = (3+(bw*(3-1)));
     posc = 3+(52*(8-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -227,8 +233,8 @@ function ladderCheckg(rowpos , colpos){
   let k = rowpos.toFixed(1);
   bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);
   //pos 4 to pos 14
-  if(colpos==3+(52*(1-1)) && k == (3+(bw*(4-1)).toFixed(1))){
-    posr = (3+(bw*(7-1))).toFixed(1);
+  if(colpos==3+(52*(1-1)) && k == (3+(bw*(4-1))).toFixed(1)){
+    posr = (3+(bw*(7-1)));
     posc = 3+(52*(2-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px'; 
@@ -236,8 +242,8 @@ function ladderCheckg(rowpos , colpos){
     row = 2;   
   }  
   //pos 9 to pos 31
-  if(colpos==3+(52*(1-1)) && k == 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(9-1))){
-    posr = 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(10-1));
+  if(colpos==3+(52*(1-1)) && k == (3+(bw*(9-1))).toFixed(1)){
+    posr = (3+(bw*(10-1)));
     posc = 3+(52*(4-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -245,8 +251,8 @@ function ladderCheckg(rowpos , colpos){
     row = 4;    
   }  
   //pos 20 to pos 38
-  if(colpos==3+(52*(2-1)) && k == 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(1-1))){
-    posr = 3+(((document.getElementById('row').offsetWidth / 10) - 0.4)*(3-1));
+  if(colpos==3+(52*(2-1)) && k == (3+(bw*(1-1))).toFixed(1)){
+    posr = (3+(bw*(3-1)));
     posc = 3+(52*(4-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -254,8 +260,8 @@ function ladderCheckg(rowpos , colpos){
     row = 4;    
   } 
   //pos 28 to pos 84
-  if(colpos==3+(52*(3-1)) && k == 3+(bw*(8-1))){
-    posr = 3+(bw*(4-1));
+  if(colpos==3+(52*(3-1)) && k == (3+(bw*(8-1))).toFixed(1)){
+    posr = (3+(bw*(4-1)));
     posc = 3+(52*(9-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
@@ -264,7 +270,7 @@ function ladderCheckg(rowpos , colpos){
   }  
   //pos 51 to pos 67
   if(colpos==3+(52*(6-1)) && k == (3+(bw*(10-1))).toFixed(1)){
-    posr = 3+(bw*(7-1));
+    posr = (3+(bw*(7-1)));
     posc = 3+(52*(7-1));
     pointer.style.left = posr + 'px';
     pointer.style.top = posc + 'px';
