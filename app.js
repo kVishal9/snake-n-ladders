@@ -5,6 +5,7 @@ const generate = document.querySelector('button');
 const reset = document.querySelector('#reset');
 let DV = document.querySelector('#dicevalue');
 let bw;
+ladderpos();
 const snakes = {
   17:7,
   64:60,
@@ -29,19 +30,130 @@ let pos=0;
 let dice;
 let c = 0;
 
+function ladderpos(){
+  ladderposone();
+  ladderpostwo();
+  ladderposthree();
+  ladderposfour();
+  ladderposfive();
+
+}
+
+function ladderposone(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(2-1);
+    let y = (document.getElementById('box').offsetWidth)*(4-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = -(90 - (Math.atan(x/y)*(180/Math.PI)));
+    left = (3+(bw*(4-1))+(y/2))+2.6;
+    top = ((3+((document.getElementById('row').offsetHeight)*(1-1)))+(47/2))-27;//-((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('l1').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('l1').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('l1').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('l1').style.top = `${top.toFixed(1)}px`; 
+}
+
+function ladderpostwo(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(4-1);
+    let y = (document.getElementById('box').offsetWidth)*(2-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = -(90 - (Math.atan(x/y)*(180/Math.PI)));
+    left = (3+(bw*(9-1))+(y/2))+2.6;
+    top = (((3+((document.getElementById('row').offsetHeight)*(1-1)))+(47/2)));//((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('l2').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('l2').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('l2').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('l2').style.top = `${top.toFixed(1)}px`; 
+}
+
+function ladderposthree(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(3-1);
+    let y = (document.getElementById('box').offsetWidth)*(3-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = -(90 - (Math.atan(x/y)*(180/Math.PI)));
+    left = (3+(bw*(1-1))+(y/2))+2.6;
+    top = ((3+((document.getElementById('row').offsetHeight)*(2-1)))+(47/2))-18;
+
+    document.getElementById('l3').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('l3').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('l3').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('l3').style.top = `${top.toFixed(1)}px`; 
+}
+
+function ladderposfour(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(7-1);
+    let y = (document.getElementById('box').offsetWidth)*(5-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)))+20;
+    angle = (90 - (Math.atan(x/y)*(180/Math.PI)))-2;
+    left = (3+(bw*(4-1))+(y/2))+2.6;
+    top = (((3+((document.getElementById('row').offsetHeight)*(3-1)))+(47/2)))-20;//((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('l4').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('l4').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('l4').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('l4').style.top = `${top.toFixed(1)}px`; 
+}
+function ladderposfive(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(2-1);
+    let y = (document.getElementById('box').offsetWidth)*(4-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = (90 - (Math.atan(x/y)*(180/Math.PI)))-2;
+    left = (3+(bw*(7-1))+(y/2))+2.6;
+    top = (((3+((document.getElementById('row').offsetHeight)*(6-1)))+(47/2)))-37;//((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('l5').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('l5').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('l5').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('l5').style.top = `${top.toFixed(1)}px`; 
+}
+
+
 document.getElementById('normal').addEventListener('click', ()=>{
     makeMove(); 
-    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4); 
-    
-    let v = 4.3342234;
-    //v = v.toFixed(1);
-
+    ladderpos();
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
     //posr.toFixed(1)==(3+bw).toFixed(1)? v = "true": v = "false";
     //v = parseFloat((3+(bw*(6-1)))) + parseFloat((1).toFixed(1));
     //v = parseFloat(2.0) - parseFloat(1.0);
     
-    document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px ||  ${v.toFixed(1)}` ;
+    document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px || ${document.getElementById('row').offsetHeight}`;
+
+    
+    
   });
+
+
 
 //RESET BUTTON
 reset.addEventListener('click', gameReset)
