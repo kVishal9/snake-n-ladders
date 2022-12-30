@@ -356,7 +356,7 @@ function aumove(dice){
 }
 //SINGLE SPET MOVEMENT FUNCTION
 function makeMove(){
- 
+  new Audio("mixkit-explainer-video-game-alert-sweep-236.wav").play();
   if(row%2!=0){
     posr = parseFloat(posr.toFixed(1)) + parseFloat((((document.getElementById('row').offsetWidth / 10)- 0.4)).toFixed(1));    
     
