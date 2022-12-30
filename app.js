@@ -6,6 +6,7 @@ const reset = document.querySelector('#reset');
 let DV = document.querySelector('#dicevalue');
 let bw;
 ladderpos();
+snakepos();
 const snakes = {
   17:7,
   64:60,
@@ -38,7 +39,109 @@ function ladderpos(){
   ladderposfive();
 
 }
+function snakepos(){
+ snakeposone();
+ snakepostwo();
+ snakeposthree();
+ snakeposfour();
+ snakeposfive();
+}
 
+function snakeposone(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(2-1);
+    let y = (document.getElementById('box').offsetWidth)*(4-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = (270 - (Math.atan(x/y)*(180/Math.PI)))+10;
+    left = (3+(bw*(4-1)) +(y/2))-10;
+    top = ((3+((document.getElementById('row').offsetHeight)*(1-1)))+(47/2))-35.0;//-((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('s1').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('s1').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('s1').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('s1').style.top = `${top.toFixed(1)}px`; 
+}
+function snakepostwo(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(1-1);
+    let y = (document.getElementById('box').offsetWidth)*(4-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = (90 + (Math.atan(x/y)*(180/Math.PI)))+42;
+    left = (3+(bw*(1-1)) +(y/2))-5;
+    top = ((3+((document.getElementById('row').offsetHeight)*(6-1)))+(47/2))-47.0;//-((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('s2').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('s2').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('s2').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('s2').style.top = `${top.toFixed(1)}px`; 
+}
+function snakeposthree(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(7-1);
+    let y = (document.getElementById('box').offsetWidth)*(3-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)))+50;
+    angle = (90 + (Math.atan(x/y)*(180/Math.PI)));
+    left = (3+(bw*(6-1)) +(y/2))+16;
+    top = ((3+((document.getElementById('row').offsetHeight)*(3-1)))+(47/2))-30;//-((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('s3').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('s3').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('s3').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('s3').style.top = `${top.toFixed(1)}px`; 
+}
+function snakeposfour(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(3-1);
+    let y = (document.getElementById('box').offsetWidth)*(2-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = (90+(Math.atan(x/y)*(180/Math.PI)))+70;
+    left = (3+(bw*(6-1)) +(y/2))-10;
+    top = ((3+((document.getElementById('row').offsetHeight)*(8-1)))+(47/2))-10;//-((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('s4').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('s4').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('s4').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('s4').style.top = `${top.toFixed(1)}px`; 
+}
+function snakeposfive(){
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(3-1);
+    let y = (document.getElementById('box').offsetWidth)*(2-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = (90+(Math.atan(x/y)*(180/Math.PI)))+70;
+    left = (3+(bw*(2-1)) +(y/2))-10;
+    top = ((3+((document.getElementById('row').offsetHeight)*(8-1)))+(47/2))-10;//-((height/2) - ((document.getElementById('box').offsetHeight)*(1)));
+
+    document.getElementById('s5').style.transform = `rotate(${angle.toFixed(1)}deg)`;
+    document.getElementById('s5').style.height = `${height.toFixed(1)}px`;
+    document.getElementById('s5').style.left = `${left.toFixed(1)}px`;
+    document.getElementById('s5').style.top = `${top.toFixed(1)}px`; 
+}
 function ladderposone(){
     bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
     let angle;
@@ -139,19 +242,28 @@ function ladderposfive(){
 }
 
 
-document.getElementById('normal').addEventListener('click', ()=>{
+/*document.getElementById('normal').addEventListener('click', ()=>{
     makeMove(); 
     ladderpos();
-    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);    
+    snakepos();
+    bw = ((document.getElementById('row').offsetWidth / 10) - 0.4); 
+    
+   
+    let angle;
+    let height;
+    let left;
+    let top;
+
+    let x = (document.getElementById('box').offsetHeight)*(2-1);
+    let y = (document.getElementById('box').offsetWidth)*(4-1);
+    height = Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+    angle = ((Math.atan(x/y)*(180/Math.PI)));
     //posr.toFixed(1)==(3+bw).toFixed(1)? v = "true": v = "false";
     //v = parseFloat((3+(bw*(6-1)))) + parseFloat((1).toFixed(1));
     //v = parseFloat(2.0) - parseFloat(1.0);
     
-    document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px || ${document.getElementById('row').offsetHeight}`;
-
-    
-    
-  });
+    document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px || ${angle} ${height}`;    
+  });*/
 
 
 
@@ -181,6 +293,7 @@ function gameReset(){
 //DICE ROLL BUTTON
 generate.addEventListener('click',()=>{
   new Audio('Shake And Roll Dice-SoundBible.com-591494296.mp3').play();
+
   dice=Math.floor(Math.random()*6)+1;  
   bw = ((document.getElementById('row').offsetWidth / 10) - 0.4);//value =48.4
   document.getElementById('dicevalue').innerText=`Dice Value: ${dice}`;  
@@ -231,7 +344,7 @@ function aumove(dice){
       count++;
     }else clearInterval(v);
   },300);
-  setTimeout(()=>{  document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px`;
+  setTimeout(()=>{  //document.getElementById('msg').innerHTML=`Co-ords=> Left: ${posr.toFixed(1)}px , Top: ${posc}px`;
     snakeCheckg(posr , posc);
     ladderCheckg(posr , posc);
   } , 2000) 
@@ -271,6 +384,7 @@ function makeMove(){
       pointer.style.left = 3 + 'px';
       pointer.style.top = 471 + 'px';
       document.querySelector('.result').innerText='game over, you won';
+      new Audio('mixkit-arcade-game-complete-or-approved-mission-205.wav').play();
       setTimeout(()=>{gameover()},1500);
     }    
   }   
@@ -279,6 +393,7 @@ function makeMove(){
       pointer.style.left = 3 + 'px';
       pointer.style.top = 471 + 'px';
       document.querySelector('.result').innerText='game over, you won';
+      new Audio('mixkit-arcade-game-complete-or-approved-mission-205.wav').play();
       setTimeout(()=>{gameover()},1500);
     }    
   } 
