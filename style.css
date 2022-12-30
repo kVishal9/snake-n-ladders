@@ -96,11 +96,27 @@ button:hover{
     
 }
 .row:nth-child(odd) .box:nth-child(odd) , .row:nth-child(even) .box:nth-child(even) {
-    background-color: rgb(132, 0, 255);
+    background-color: rgb(0, 149, 255);
     
 }
 .row:nth-child(odd) .box:nth-child(even) , .row:nth-child(even) .box:nth-child(odd) {
     background-color: rgb(0, 0, 0);
+}
+
+.row:nth-child(1) .box:nth-child(4) ,
+.row:nth-child(1) .box:nth-child(9) ,
+.row:nth-child(2) .box:nth-child(1) ,
+.row:nth-child(4) .box:nth-child(3) ,
+.row:nth-child(3) .box:nth-child(8),
+.row:nth-child(9) .box:nth-child(4),
+.row:nth-child(6) .box:nth-child(10),
+.row:nth-child(7) .box:nth-child(7){
+    background-color: rgb(191, 255, 127);
+    color: black;
+}
+.row:nth-child(2) .box:nth-child(7) , .row:nth-child(4) .box:nth-child(10) {
+    background-color: rgb(191, 255, 127);
+    color: black;
 }
 #pointer {
     position: absolute;
@@ -112,5 +128,29 @@ button:hover{
     border: 1px solid rgb(255, 75, 75);
     border-radius: 50%;
     transition: 0.3s;
+    z-index: 3;
+}
+.ladder img{
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    transform: rotateZ(-0deg);
+    z-index: 2;
+    border: 0px dashed ;
+
+}
+.ladder img:nth-child(2) {
+    left: 3px;
+    top: 3px;
+    height: 50px;
+    transform: rotateZ(-0deg);
+}
+.ladder img:nth-child(3){
+    left: 3px;
+    top: 3px;
+    height: 50px;
+    transform: rotateZ(-0deg);
 }
 
